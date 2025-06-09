@@ -1,6 +1,6 @@
 # Astra-LMS
 ```
-/lms/
+/Astra-LMS/
 |-- .env.example              # Example environment variables
 |-- docker-compose.yml        # <<< Main Docker orchestration file
 |
