@@ -82,8 +82,10 @@ Frontend: http://localhost
 Backend API: http://localhost:8000
 Django Admin: http://localhost:8000/admin
 ```
-Setup Guide for Windows IIS server 
+**Setup Guide for Windows IIS server**
+
 #pre-requisites 
+```
 Part 1: Prerequisites & Manual Setup
 Before running the script, you must manually install and configure the following on your Windows Server.
 
@@ -95,8 +97,9 @@ Under Role Services, ensure the following are checked:
 Common HTTP Features (all sub-items)
 Application Development > CGI
 Management Tools > IIS Management Console
-Install URL Rewrite Module:
-
+```
+**Install URL Rewrite Module:**
+```
 Download and install the IIS URL Rewrite Module. This is crucial for both the React frontend and the API proxy.
 Install Python:
 
@@ -112,8 +115,11 @@ Install Git:
 Download and install Git for Windows from the official website.
 Install a Database:
 
-This guide assumes you have a PostgreSQL server already installed and accessible from your IIS machine. Note the database name, user, password, host, and port.
+This guide assumes you have a PostgreSQL server already installed and accessible from your IIS machine.
+Note the database name, user, password, host, and port.
+```
 Part 2: The Deployment Automation Script
+```
 This batch script automates the creation of IIS sites, application pools, and the configuration for both the frontend and backend.
 
 Instructions:
@@ -122,3 +128,4 @@ Create a new file named deploy_lms.bat.
 Copy and paste the entire script below into this file.
 Carefully edit the "CONFIGURATION" section at the top of the script.
 Open Command Prompt or PowerShell as an Administrator, navigate to where you saved the script, and run it.
+```
