@@ -1,12 +1,20 @@
-# backend/settings.py
-import os
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': os.getenv('lmsdb'),
-    'USER': os.getenv('lmsadmin'),
-    'PASSWORD': os.getenv('lmspass'),
-    'HOST': os.getenv('localhost'),
-    'PORT': '5432',
-  }
+INSTALLED_APPS = [
+    ...,
+    'rest_framework',
+    'corsheaders',
+    'users',
+    'courses',
+]
+
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    ...,
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
 }
