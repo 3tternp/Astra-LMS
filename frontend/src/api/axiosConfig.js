@@ -1,18 +1,15 @@
 import axios from 'axios';
 
-const apiClient = axios.create({
-  baseURL: '/api/', // Proxied by Nginx
+const api = axios.create({
+  baseURL: 'http://localhost:8000/api/',
 });
 
-apiClient.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
-export default apiClient;
+export default api;
